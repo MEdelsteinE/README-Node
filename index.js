@@ -1,64 +1,55 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require("./utils/generateMarkdown");
 const md = ''
 const project = {
+    title: '',
+    description: '',
     refences: []
 };
-// TODO: Create an array of questions for user input
-function askTitle() {
-inquirer.prompt ({  
-    name: 'projectTitle',
-    message: 'What is is the name of your project?',
-    }).then(answer => {
-        project.projectTitle = answer.projectTitle;
-        askDescription();
-    });
-}
-
-function askDescription() {
-    inquirer.prompt ({
+const questions = [
+    {
+        name: 'projectTitle',
+        message: 'What is the name of your Project?',
+        nextQuestion: 'projectDescription',
+    },
+    {
         name: 'projectDescription',
-        message: 'Please proved a detailed descrption of your project.',
-        }).then(answer => {
-            project.projectDescription = answer.projectDescription;
-            askContents();
-        });
-}
+        message: 'Please proved a detailed descrption of your Project.',
+        nextQuestion: 'askContents',
+    },
+    {
+        name: 'askContents',
+        message: 'Please enter a Table of Contents for your Project.',
+        nextQuestion: 'howTo',
+    },
+    {
+        name: 'howTo',
+        message: 'Please explain the Installation process.',
+        nextQuestion: 'toUse',
+    },
+    {
+        name: 'toUse',
+        message: 'Please explain how to use this Project.',
+        nextQuestion: 'addContributors',
+    },
+    {
+        name: 'addContributors',
+        message: 'Please list all Contributors that helped with this Project.',
+        nextQuestion: 'runTests',
+    },
+    {
+        name: 'runTests',
+        message: 'Please input testing instructions for this Project.',
+        nextQuestion: 'refrences',
+    },
+];
+    
 
-function askContents() {
-    inquirer.prompt ({
-        name: 'Contents',
-        message: 'Please enter a Table of Contents for your project',
-    }).then(answer => {
-        project.Contents = answer.Contents;
-        howTo();
-    });
-}
 
-function howTo() {
-    inquirer.prompt ({
-        name: 'Installation',
-        message: 'Please explain the Installation process',
-        }).then(answer => {
-            project.Installation = answer.Installation;
-            toUse();
-        });
-}
+// TODO: Create an array of questions for user input
 
-function toUse() {
-    inquirer.prompt ({
-        name: 'Usage',
-        message: 'Please explain how to use this project',
-    }).then(answer => {
-        project.Usage = answer.Usage;
-        addContributors();
-    });
-}
-
-function addContributors () {
-    inquirer.prompt
-}
 
 // TODO: Create a function to write README file
 fs.writeFile('./README', md, (err) => {
