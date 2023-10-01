@@ -16,3 +16,5 @@ function generateMarkdown(data) {
 
 `;
 }
+
+module.exports = [renderLicenseBadge, renderLicenseLink, generateMarkdown];

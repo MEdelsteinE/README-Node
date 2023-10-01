@@ -2,49 +2,51 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require("./utils/generateMarkdown");
-const md = ''
-const project = {
-    title: '',
-    description: '',
-    refences: []
-};
-const questions = [
+const md = '';
+const project = [];
+
+function promptUser() {
+inquirer.prompt ([
     {
         name: 'projectTitle',
-        message: 'What is the name of your Project?',
-        nextQuestion: 'projectDescription',
+        message: 'Please enter the name of your Project',
     },
     {
         name: 'projectDescription',
-        message: 'Please proved a detailed descrption of your Project.',
-        nextQuestion: 'askContents',
+        message: 'Please describe your Project',
     },
     {
-        name: 'askContents',
-        message: 'Please enter a Table of Contents for your Project.',
-        nextQuestion: 'howTo',
+        name: 'projectContents',
+        message: 'Please enter a table of contents for your Project',
     },
     {
-        name: 'howTo',
-        message: 'Please explain the Installation process.',
-        nextQuestion: 'toUse',
+        name: 'projectInstall',
+        message: 'Please explain how to install your Project',
     },
     {
-        name: 'toUse',
-        message: 'Please explain how to use this Project.',
-        nextQuestion: 'addContributors',
+        name: 'projectUse',
+        message: 'Please explain how to use this Project',
     },
     {
-        name: 'addContributors',
-        message: 'Please list all Contributors that helped with this Project.',
-        nextQuestion: 'runTests',
+        name: 'projectContributors',
+        message: 'Please list all Technologies and people whom helped with this Project',
     },
     {
-        name: 'runTests',
-        message: 'Please input testing instructions for this Project.',
-        nextQuestion: 'refrences',
+        name: 'projectTest',
+        message: 'Please enter testing instructions you would like for this Project',
     },
-];
+    {
+        name: 'githubName',
+        message: 'Please enter your Github username?',
+    },
+    {
+        name: 'userEmail',
+        message: 'Please enter your Github email where future contributors can contact you'
+    }
+
+])}
+    
+
     
 
 
@@ -52,13 +54,17 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-fs.writeFile('./README', md, (err) => {
-if (err) throw err;
+// // fs.writeFile('./README', md, (err) => {
+// // if (err) throw err;
 
-console.log('File created!');
-});
+// console.log('File created!');
+// });
 // TODO: Create a function to initialize app
 function init() {}
-
+    promptUser();
 // Function call to initialize app
 init();
+
+fs.writeFile('./README', md, (err) => {
+    if (err) throw err;
+});    
