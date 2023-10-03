@@ -31,7 +31,8 @@ function promptUser() {
             message: 'Please enter testing instructions you would like for this Project',
         },
         {
-            type: list,
+            type: 'list',
+            name: 'license',
             message: 'Please choose a license you want to use',
             choices: ['MIT','IBM', 'Mozilla', 'None']
         },
