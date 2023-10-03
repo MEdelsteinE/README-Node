@@ -34,7 +34,7 @@ function promptUser() {
             type: list,
             message: 'Please choose a license you want to use',
             choices: ['MIT','IBM', 'Mozilla', 'None']
-        }
+        },
         {
             name: 'githubName',
             message: 'Please enter your Github username',

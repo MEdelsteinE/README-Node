@@ -17,14 +17,20 @@ function generateMarkdown(data) {
 ## Description 
 ${data.projectDescription}
 
-###
-${data.projectContents}
+### Instalation
+${data.projectInstall}
+
+### How to Use
+${data.projectUse}
+
+### Contributors
+${data.projectContributors}
 `;
 }
 
 // projectTitle: 'test',
 // projectDescription: 't',
-// projectContents: 't',
+
 // projectInstall: 't',
 // projectUse: 't',
 // projectContributors: 't',
