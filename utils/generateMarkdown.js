@@ -3,13 +3,13 @@
 function renderLicenseBadge(license) {
   switch (license) {
     case 'MIT':
-      return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]';
+      return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
       
      case 'IBM':
-      return '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)]';
+      return '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)';
 
       case 'Mozilla':
-        return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)]';
+        return '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
 
       case 'None':
         return '';
@@ -21,13 +21,13 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   switch (license) {
     case 'MIT':
-      return '[![License: MIT](https://opensource.org/licenses/MIT)';
+      return '[License: MIT](https://opensource.org/licenses/MIT)';
 
     case 'IBM':
-      return '[![License: IPL 1.0](https://opensource.org/licenses/IPL-1.0)';
+      return '[License: IPL 1.0](https://opensource.org/licenses/IPL-1.0)';
 
       case 'Mozilla':
-        return '[![License: MPL 2.0](https://opensource.org/licenses/MPL-2.0)';
+        return '[License: MPL 2.0](https://opensource.org/licenses/MPL-2.0)';
 
        case 'None':
         return '';
@@ -42,9 +42,9 @@ function renderLicenseSection(license) {
   return '';
 }
   return `
-  ## Licenses
-${renderLicenseBadge(data.license)}
-${renderLicenseLink(data.license)}
+  ## License
+${renderLicenseBadge(license)}
+${renderLicenseLink(license)}
   `
 };
 
@@ -56,15 +56,15 @@ function generateMarkdown(data) {
 ${data.projectDescription}
 
 ## Table of Contents
-[Installation](#-Installation)
+[Installation](#installation)
 
-[How to Use](#How-to-use)
+[How to Use](#how-to-use)
 
-[Contributors](#-Contributors)
+[Contributors](#contributors)
 
-[Tests](#-Tests)
+[Tests](#tests)
 
-[License](#-License)
+[License](#license)
 
 ### Instalation
 ${data.projectInstall}
@@ -78,15 +78,12 @@ ${data.projectContributors}
 ## Test
 ${data.projectTest}
 
-## License
-${renderLicenseLink(data.license)}
+${renderLicenseSection(data.license)}
 
 ## Contact
 ${data.githubName}
 ${data.userEmail}
  
-
-}
 `;
 }
 
