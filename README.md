@@ -1,7 +1,7 @@
-# fjfj
+# ReadMe Generator
 
 ## Description 
-afaf
+A Readme generator for writing a Readme
 
 ## Table of Contents
 [Installation](#installation)
@@ -12,18 +12,19 @@ afaf
 
 [Tests](#tests)
 
+[License](#license)
 
 ### Instalation
-afaf
+There are no installation instructions at this time
 
 ### How to Use
-afaf
+A user can use this program to write a professional Readme
 
 ### Contributors
-afaf
+Inquierer package
 
 ## Test
-afaf
+No testing is avaiable at this time
 
 
   ## License
@@ -32,6 +33,6 @@ afaf
   
 
 ## Contact
-afaf
-afaf
+medelsteine
+medelsteine@github.com
  
